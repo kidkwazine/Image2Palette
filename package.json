@@ -1,7 +1,7 @@
 {
   "name": "color-2-palette",
   "version": "0.1.0",
-  "homepage": "https://kidkwazine.github.io/image2palette",
+  "homepage": "https://kidkwazine.github.io/Image2Palette/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
