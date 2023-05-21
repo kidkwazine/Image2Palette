@@ -17,7 +17,7 @@
  Made this as a little weekend project!<br>Hopefully it can be useful to pixel artists, game devs, and/or tech artists that need utility maps for color-swapping solutions.
 
 
-<p align="center"><h3 align="center"><a href="https://kidkwazine.github.io/image2palette">Click here to try it live!</a></h3><p align="center"></p>
+<p align="center"><h3 align="center"><a href="https://kidkwazine.github.io/Image2Palette/">Click here to try it live!</a></h3><p align="center"></p>
 
 ---
 
