@@ -1,0 +1,541 @@
+/* Image2Palette Style - rob (aka kid kwazine) - may 2023 */
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes notifyFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -5%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes titleAnimation {
+  0% {
+    
+    font-size: 6vh; /* Initial font size when no image is selected */
+  }
+  100% {
+    font-size: 4vh; /* Font size when an image is selected */
+  }
+}
+
+
+/* ------ */
+
+/* App container */
+.container {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  color: #E1E8F5;
+  z-index: 1;
+  position: relative;
+  min-height: 100dvh;
+  background-color: #0B0E14;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+}
+
+
+/* ------ */
+
+/* Header */
+.header {
+  margin-bottom: 0vh;
+  width: 100%;
+
+}
+
+/* Main Title */
+.title {
+  font-family: 'Instrument Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+  font-weight: 8700;
+  text-align: center;
+  text-decoration: none;
+  font-size: 6vh;
+  animation: fadeIn 1s forwards ease;
+  animation-delay: 0.0s;
+  height: 4vh;
+  padding-bottom: 2vh;
+  opacity: 0;
+ 
+}
+
+.image-clicked {
+  font-size: 4vh;
+  height: 4vh;
+  opacity: 1;
+  animation: titleAnimation 1s ease;
+}
+
+.subtitle {
+  font-family: 'Rubik', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+  font-weight: 400;
+  text-align: center;
+  font-size: 2vh;
+  line-height: 3vh;
+  margin: 0.5vh;
+  color: #87898f;
+  animation: fadeIn 0.5s forwards ease;
+  animation-delay: .25s;
+  opacity: 0;
+}
+
+.subtitle-two {
+  font-family: 'Rubik', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+  font-weight: 200;
+  text-align: center;
+  font-size: 2vh;
+  line-height: 3vh;
+  color: #87898f;
+  animation: fadeIn .5s forwards ease;
+  animation-delay: .5s;
+  opacity: 0;
+}
+
+
+/* ------ */
+
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding-bottom: 5vh;
+
+
+}
+
+/* Dropzone area */
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #191E29;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #b0b4be;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 200;
+  letter-spacing: 2px;
+  background-color: #0B0E14;
+  transition: background-color .25s ease, color .5s ease;
+  max-width: 30vh;
+  max-height: auto;
+  min-height: 20vh;
+  min-width: 30vh;
+  padding: 3vh 3vh;
+  box-shadow: inset 0px -5px 5px rgba(0, 0, 0, .5), inset 0px 4px 30px rgba(0, 0, 0, .5);
+  animation: fadeIn 1s forwards ease;
+  animation-delay: .75s;
+  opacity: 0;
+  position: relative;
+
+}
+
+/* Dropzone Icon */
+.img-icon {
+  font-size: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 2vh;
+}
+
+.dropzone:hover {
+  background-color: #07090e;
+  color: #E1E8F5;
+
+}
+
+/* Dropzone Text */
+p {
+
+  font-size: 2vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+  margin: 1px 12px;
+
+}
+
+/* Imported Image */
+.uploaded-image {
+  max-width: 30vh;
+  max-height: auto;
+  min-height: auto;
+  min-width: 30vh;
+  width: auto;
+  height: auto;
+  box-shadow: 1px 4px 15px rgba(0, 0, 0, 0.5);
+  transition: opacity 1s ease, box-shadow .5s ease, filter .5s ease;
+}
+
+
+.dropzone:hover .uploaded-image {
+  box-shadow: 2px 5px 30px rgba(0, 0, 0, 0.5);
+  opacity: .5;
+  filter: blur(15px)
+}
+
+/* Hover Icon */
+.restart-icon {
+  font-size: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .25s ease .1s;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 2px 5px 5px rgba(0, 0, 0, 1);
+  z-index: 1;
+}
+
+.dropzone:hover .restart-icon {
+  opacity: 1;
+  rotate: 360;
+}
+
+
+/* Color palette */
+.color-palette {
+  display: flex;
+ padding: 0 2vh;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2vh;
+  flex-wrap: wrap;
+  margin-top: 3lvh;
+}
+
+.color {
+  width: 5vh;
+  height: 5vh;
+  margin: 12px;
+  border-radius: 20%;
+  border: 2px solid #ffffff23;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1), 0px 0px 20px #3f558600;
+  transition: border 0.2s ease, box-shadow 0.25s ease;
+}
+
+.color:hover {
+  border: 2px solid #ffffff83;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.75), 0px 8px 30px #8a9cc062;
+}
+
+/* Save palette button */
+button {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.5vh;
+  background-color: #0063cc;
+  color: #E1E8F5;
+  border: none;
+  border-radius: 10px;
+  padding: 1.25vh 4vh;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #0f71da;
+}
+
+/* Palette Amount Field */
+.palette-controls label {
+  font-family: 'Rubik', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+  font-size: 1.75vh;
+  font-weight: 500;
+  margin-right: 12px;
+  color: #E1E8F5;
+}
+
+.palette-controls input {
+   font-family: 'Rubik', sans-serif;
+  font-size: 1.5vh;
+  font-weight: 600;
+  text-align: left;
+  padding: 7px 10px;
+  width: 4lvh;
+  color: #E1E8F5;
+  border: 2px solid #586279;
+  background-color: #0B0E14;
+  border-radius: 5px;
+  margin-bottom: 3vh;
+}
+
+/* Hexcode copy notification */
+.notification {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 1.5vh;
+  font-weight: 500;
+  letter-spacing: normal;
+  background-color: #040507b6;
+  color: #fff;
+  padding: 1.25lvh 2lvh;
+  min-width: 25lvh;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  animation: notifyFadeIn .25s ease;
+  z-index: 4;
+  pointer-events: none;
+
+}
+
+.copied-color {
+  font-weight: 800;
+}
+
+
+
+/* ------ */
+
+
+/* Footer */
+.footer {
+
+  text-align: center;
+  height: 12vh;
+  overflow:hidden;
+  color: #b0b4be;
+
+}
+
+.footer p {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+  font-family: 'VT323', monospace;
+  font-weight: 400;
+  font-size: 1.5vh;
+  padding-bottom: 0vh;
+
+}
+
+.github-icon {
+
+  opacity: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+  color: #b0b4be69;
+  font-size: 2.5vh;
+  transition: color 0.4s ease;
+  padding: 3vh;
+  animation: fadeIn 1s forwards ease;
+  animation-delay: 3s;
+}
+
+
+.github-icon:hover {
+  color: inherit;
+}
+
+
+/* ------ */
+/* Hides our jank text field that we use for copying hexcodes */
+.invisible {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  overflow: hidden;
+  visibility: none;
+}
+
+
+
+body {
+  background-color: #0B0E14;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: auto;
+
+}
+
+/* Higlight Coloring */
+::selection {
+  background: #2b3549;
+  color: #eff0e3;
+}
+
+/* LInk Styling */
+a {
+  color: inherit;
+
+}
+
+a.two {
+  color: inherit;
+  text-decoration: none;
+
+}
+
+a.three {
+  color: inherit;
+  animation: fadeIn 1s forwards ease;
+  animation-delay: 0.1s;
+  opacity: 0;
+
+}
+
+
+/* ------ */
+
+
+/* Media queries for smaller screens */
+@media screen and (max-width: 600px) {
+
+  .header {
+    margin-top: 0px;
+    margin-bottom: 1vh;
+  }
+
+  .title {
+    font-weight: 800;
+    font-size: 4vh;
+  }
+
+  .subtitle {
+    font-weight: 400;
+    padding: 0 50px;
+    font-size: 1.75vh;
+    line-height: 3vh;
+  }
+
+  .subtitle-two {
+    font-weight: 400;
+    padding: 2vh 50px;
+    font-size: 1.75vh;
+    animation: fadeIn 1s forwards ease;
+    animation-delay: 1s;
+
+  }
+
+  .dropzone {
+    min-height: 16vh;
+    min-width: 24vh;
+    margin-bottom: 0vh;
+    
+  }
+
+  .uploaded-image {
+    max-width: 30vh;
+    max-height: 55lvh;
+    width: auto;
+    height: auto;
+  }
+
+  .img-icon {
+    font-size: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 0vh;
+  }
+
+  .palette-controls input {
+    width: 25px;
+    padding: 5px 5px;
+    text-align: center;
+  }
+
+  .color {
+    width: 5vh;
+    height: 5vh;
+    margin: 8px 8px;
+  }
+
+  .footer {
+    color: #b0b4bea8;
+  }
+
+  .footer p {
+    font-weight: 400;
+    font-size: 1.7vh;
+    padding-bottom: 2vh;
+
+  }
+
+  .github-icon {
+    font-size: 3.5vh;
+    color: #b0b4be49;
+    
+  }
+
+  body {
+    background-color: #0B0E14;
+    position: relative;
+    overflow-y: auto;
+  }
+
+  p {
+
+    font-size: 2.75vh;
+    margin: 0 2px;
+  }
+
+
+}
