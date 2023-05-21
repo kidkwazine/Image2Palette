@@ -1,7 +1,4 @@
-![Img2PalBanner](https://github.com/kidkwazine/Image2Palette/assets/16472141/ae007fcb-38f2-4113-87de-10bab344c69b)
-
-
-
+![Img2PalBanner](https://github.com/kidkwazine/Image2Palette/assets/16472141/e5e40e49-3ebf-44b6-acdb-6c840d2bd7d0)
 
 
 
@@ -27,7 +24,7 @@
 
 
 <kbd>
-  <img src="https://github.com/kidkwazine/Image2Palette/assets/16472141/72934336-de5f-442f-a96f-56bdc420900b">
+  <img src="https://github.com/kidkwazine/Image2Palette/assets/16472141/d42b7035-9d90-4c25-a0f6-6b3d54b42ed0">
 </kbd>
 
 <br>
