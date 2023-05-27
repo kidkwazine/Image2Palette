@@ -44,8 +44,11 @@
 
 
 <div align="center">
- love u, <br<br>
+ love u, <br><br>
+<a href="https://twitter.com/kidkwazine" target="_blank">
+  <img src="https://img.shields.io/twitter/follow/kidkwazine?color=blue&label=%40kidkwazine&logo=twitter&style=flat-square" /> 
+ </a>
 
-![Twitter Follow](https://img.shields.io/twitter/follow/kidkwazine?color=blue&label=%40kidkwazine&logo=twitter&style=flat-square)
+ 
 
 </div>
